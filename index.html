@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <title>Quiz</title>
+</head>
+<body>
+    <header>
+
+    </header>
+    <main>
+        <div id="intro">
+            <h1>Hei Sigrid</h1>
+            <p>Quiz</p>
+            <button id="knapp">Start quiz</button>
+        </div>
+        <p id="opne"></p>
+        <button id="knapp1" onclick="ja()">Ja</button>
+        <button id="knapp2" onclick="nei()">Nei</button>
+        <button id="nxt" onclick="nxtS()">Neste</button>
+    </main>
+    <footer>
+
+    </footer>
+    <script>
+        var intro = document.getElementById("intro");
+        var opne = document.getElementById("opne");
+        var knapp = document.getElementById("knapp"); 
+        var knapp1 = document.getElementById("knapp1"); 
+        var knapp2 = document.getElementById("knapp2"); 
+        var nxt = document.getElementById("nxt"); 
+    
+        knapp1.style.display = "none";
+        knapp2.style.display = "none";
+        nxt.style.display = "none";
+
+        function quiz(){ 
+            intro.innerHTML = "";
+            opne.innerHTML = `
+                <p>Er du en strong independent woman?</p>
+            `;
+            knapp1.style.display = "inline";
+            knapp2.style.display = "inline";
+            knapp.style.display = "none";
+        };
+
+        function ja(){
+            opne.innerHTML = "Så bra!";
+            knapp1.style.display = "none";
+            knapp2.style.display = "none";
+            nxt.style.display = "inline";
+        };
+        function nei(){
+            opne.innerHTML = "Det er lite keegt, men OK";
+            knapp1.style.display = "none";
+            knapp2.style.display = "none";
+            nxt.style.display = "inline";
+        };
+
+        function nxtS(){
+            intro.innerHTML = "";
+            opne.innerHTML = `
+                <p>Er vi gift? NB: riktig svar er ja...</p>
+            `;
+            knapp1.style.display = "inline";
+            knapp2.style.display = "inline";
+            knapp.style.display = "none";
+            nxt.style.display = "none";
+            nxt.onclick = snapURL;
+        }
+        
+        function snapURL() {
+            intro.innerHTML = "";
+            opne.innerHTML = `
+                <p>
+                Som en klok mann en gang sa: 
+                </p>
+                <p> "Don't run with your legs run with your </p>
+                <a href="https://www.strava.com/athletes/45374635" target="_blank">heart"</a>
+                
+            `;
+            knapp.style.display = "none";
+            knapp1.style.display = "none";
+            knapp2.style.display = "none";
+            nxt.style.display = "none";
+        }
+        knapp.onclick = quiz;
+    </script>
+    
+</body>
+</html>
